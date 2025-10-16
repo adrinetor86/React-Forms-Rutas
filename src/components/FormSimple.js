@@ -9,14 +9,25 @@ class FormSimple extends Component {
     peticionFormulario=(event)=>{
         event.preventDefault();
         console.log("PETICION LISTA")
+
         //PARA RECUPERAR EL VALOR DE UN OBJETO REACT SE HACE:
         let nombre=this.cajaNombre.current.value;
+
         console.log(nombre);
+
+        this.setState({
+            nombre:nombre
+        })
+    }
+
+    state={
+        nombre:""
     }
     render() {
         return (
             <div>
                 <h1>Formulario</h1>
+                <h2 style={{color:"blue"}}>{this.state.nombre}</h2>
                 <form onSubmit={this.peticionFormulario}>
                     <label>Nombre: </label>
                     <input ref={this.cajaNombre} type="text" placeholder="Nombre"/>
